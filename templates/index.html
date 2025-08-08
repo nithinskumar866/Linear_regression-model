@@ -1,0 +1,102 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Productivity Predictor</title>
+    <style>
+        /* static/style.css */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1c86ee;
+        }
+
+        .result,
+        .error {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e6f7ff;
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            color: #0050b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📊 Employee Productivity Predictor</h1>
+
+        <form action="/predict" method="post">
+            <label>Work Hours per Day (4 - 12)</label>
+            <input type="number" step="0.1" name="work_hours" required>
+
+            <label>Break Time (in hours, 0.3 - 2)</label>
+            <input type="number" step="0.1" name="break_time" required>
+
+            <label>Tasks Completed (1 - 10)</label>
+            <input type="number" step="1" name="tasks_completed" required>
+
+            <button type="submit">Predict Productivity</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">Predicted Productivity Score: <strong>{{ prediction }}</strong>/100</div>
+        {% elif error %}
+        <div class="error">Error: {{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
