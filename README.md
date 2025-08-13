@@ -67,11 +67,13 @@ Example rows from `dataset/productivity_data.csv`:
 -----
 
 ### Web App Input Form
-![alt text](image.png)
+<img width="481" height="415" alt="image" src="https://github.com/user-attachments/assets/a3018449-47cf-4d36-8d34-b5d704742bdb" />
+
 -----
 
 ### Prediction Result Page
-![alt text](image-1.png)
+<img width="460" height="459" alt="image" src="https://github.com/user-attachments/assets/24c9d039-0419-4541-a647-225f31ef6840" />
+
 
 -----
 
